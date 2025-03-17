@@ -1,3 +1,14 @@
+<?php
+require_once "../src/funcoes-fabricantes.php"
+
+//  obtendo o valor do parametro via URL
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+
+//  chamando a função para carregar os dados de um fabricante
+$fabricante = listarUmFabricante($conexao, $id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

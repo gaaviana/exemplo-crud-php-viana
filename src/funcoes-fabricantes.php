@@ -46,3 +46,4 @@ function inserirFabricante(PDO $conexao, string $nomeDoFabricante):void {
         die("Erro ao inserir: ".$erro->getMessage());
     }
 }
+

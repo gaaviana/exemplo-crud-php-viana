@@ -45,9 +45,12 @@ foreach($listaDeFabricantes as $fabricante) { ?>
                     <td> <?= $fabricante["id"] ?> </td>
                     <td> <?= $fabricante["nome"] ?> </td>
                     <td>
+                        <!-- configurando o link dinamico
+                        passamos um parametro de url para a pagina atuaizar.php, neste caso, o parametro chamado "id" contendo o valor do id do fabricante a ser editado. 
+                        -->
                         <a href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a>
                     </td>
-                </tr>                
+                </tr>              
 <?php } ?>
                 
             </tbody>
