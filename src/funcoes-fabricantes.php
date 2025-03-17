@@ -47,3 +47,21 @@ function inserirFabricante(PDO $conexao, string $nomeDoFabricante):void {
     }
 }
 
+// listarUmFabricante: usada pela pagina fabricantes/atualizar.php
+function listarUmFabricante(PDO $conexao, int $idFabricante):array {
+    $sql = "SELECT * FROM fabricantes WHERE id = :id";
+
+    try {
+        $consulta = $conexao->prepare($sql);
+
+        $consulta->bindValue(":id", $idFabricante, PDO::PARAM_INT);
+
+        $consulta->execute();
+
+        // usamos o fetch para garantir o retotno de um unico array associativo com o resultado
+        return $consulta-> fetch(PDO::FETCH_ASSOC);
+
+    } catch (Exception $erro) {
+        die("Erro ao carregar fabricante: ".$erro->getMessage());
+    }
+}
