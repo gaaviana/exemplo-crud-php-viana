@@ -34,6 +34,7 @@ $quantidade = count($listaDeFabricantes);
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
+                    <th>Operações</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,9 @@ foreach($listaDeFabricantes as $fabricante) { ?>
                 <tr>
                     <td> <?= $fabricante["id"] ?> </td>
                     <td> <?= $fabricante["nome"] ?> </td>
+                    <td>
+                        <a href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a>
+                    </td>
                 </tr>                
 <?php } ?>
                 
