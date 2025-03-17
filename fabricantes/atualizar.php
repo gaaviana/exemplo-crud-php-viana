@@ -7,6 +7,16 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 //  chamando a função para carregar os dados de um fabricante
 $fabricante = listarUmFabricante($conexao, $id);
 
+// verificar se o formulario de atualização foi acionado
+if (isset($_POST['atualizar'])) {
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $atualizar = atualizarFabricante($conexao, $nome, $id);
+
+    header("location:visualizar.php");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +38,7 @@ $fabricante = listarUmFabricante($conexao, $id);
 
             <!-- Campo oculto(hidden): o formulário/servidor "sabe" do valor, mas não mostra para o usuário -->
             <input type="hidden" name="id" value="<?=$fabricante['id']?>">
-            
+
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
                 <input value="<?=$fabricante['nome']?>" class="form-control" required type="text" name="nome" id="nome">
