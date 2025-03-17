@@ -10,6 +10,10 @@ if (isset($_POST['inserir'])) {
 
     // inserindo o novo fabricante atraves de uma função
     inserirFabricante($conexao, $nome);
+
+    // redirecinando para a visualização atualizada
+    header("location:visualizar.php");
+    exit;
 };
 ?>
 
