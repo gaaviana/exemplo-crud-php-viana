@@ -81,3 +81,4 @@ function atualizarFabricante(PDO $conexao, string $nomeDoFabricante, int $idFabr
         die("Erro ao carregar fabricante: ".$erro->getMessage());
     }
 }
+

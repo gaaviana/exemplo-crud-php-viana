@@ -35,6 +35,7 @@ $quantidade = count($listaDeFabricantes);
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Operações</th>
+    
                 </tr>
             </thead>
             <tbody>
@@ -48,8 +49,10 @@ foreach($listaDeFabricantes as $fabricante) { ?>
                         <!-- configurando o link dinamico
                         passamos um parametro de url para a pagina atuaizar.php, neste caso, o parametro chamado "id" contendo o valor do id do fabricante a ser editado. 
                         -->
-                        <a href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a>
+                        <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a> 
+                        <a class="btn btn-danger btn-sm" href="excluir.php?id=<?=$fabricante['id']?>">excloe</a>
                     </td>
+                    
                 </tr>              
 <?php } ?>
                 
