@@ -1,3 +1,10 @@
+<?php
+require_once "../src/funcoes-produtos.php";
+
+$listaDeProdutos = listarProdutos($conexao);
+?>
+
+<pre><?=var_dump($listaDeProdutos)?></pre>
 <!DOCTYPE html>
 <html lang="pt-br">
 
