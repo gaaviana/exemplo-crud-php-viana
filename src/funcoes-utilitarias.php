@@ -5,5 +5,5 @@ function formatarPreco(float $valor):string {
 
 function total(float $valor, int $qtd):string {
     $calcular = $valor * $qtd;
-    return 'R$ '.number_format($calcular, 2, ',', '.');
+    return formatarPreco($calcular);
 };
