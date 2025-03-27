@@ -2,6 +2,7 @@
 require_once "../src/funcoes-produtos.php";
 
 $listaDeProdutos = listarProdutos($conexao);
+
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +29,10 @@ $listaDeProdutos = listarProdutos($conexao);
             <?php foreach ($listaDeProdutos as $produto) { ?>
             <div class="col-sm-6">
                 <article class="bg-body-secondary p-2">
-                    <h3><?=$produto['nome']?></h3>
-                    <h4><?=$produto['fabricante_id']?></h4>
-                    <p><b>Preço:</b> <?=number_format($produto['preco'], 2, ',', '.')?></p>
-                    <p><b>Qtd:</b> <?=$produto['quantidade']?></p>
+                    <h3><?=$produto['Produto']?></h3>
+                    <h4><?=$produto['Fabricante']?></h4>
+                    <p><b>Preço:</b> <?=number_format($produto['Preço'], 2, ',', '.')?></p>
+                    <p><b>Qtd:</b> <?=$produto['Quantidade']?></p>
                 </article>
             </div>
             <?php } ?>

@@ -2,7 +2,16 @@
 require_once "conecta.php";
 
 function listarProdutos(PDO $conexao):array {
-    $sql = "SELECT * FROM produtos";
+   // $sql = "SELECT * FROM produtos";
+  $sql = "SELECT
+            produtos.id,
+            produtos.nome AS Produto,
+            produtos.preco AS 'Preço',
+            produtos.quantidade AS Quantidade,
+            fabricantes.nome AS Fabricante
+        FROM produtos INNER JOIN fabricantes
+        ON produtos.fabricante_id = fabricantes.id
+        ORDER BY produto";
 
     try {
         $consulta = $conexao->prepare($sql);
@@ -14,14 +23,3 @@ function listarProdutos(PDO $conexao):array {
     }
 };
 
-function nmfab(PDO $conexao, INT $fabricante_id) {
-    $sql = "SELECT nome FROM fabricantes WHERE id = :id";
-
-    $consulta = $conexao->prepare($sql);
-    $consulta->bindValue(':id', $fabricante_id, PDO::PARAM_INT);
-    $consulta->execute();
-
-    $fabricante = $consulta->fetch(PDO::FETCH_ASSOC);
-
-    return $fabricante;
-}
