@@ -39,7 +39,7 @@ if (isset($_POST["inserir"])) {
             </div>
             <div class="mb-3">
                 <label class="form-label" for="preco">Preço:</label>
-                <input class="form-control" type="number" min="10" max="1000000" step="0.01" name="preco" id="preco" required>
+                <input class="form-control" type="number" min="10" max="10000" step="0.01" name="preco" id="preco" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="quantidade">Quantidade:</label>
