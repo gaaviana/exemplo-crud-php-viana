@@ -1,5 +1,6 @@
 <?php
 require_once "../src/funcoes-produtos.php";
+require_once "../src/funcoes-utilitarias.php";
 
 $listaDeProdutos = listarProdutos($conexao);
 
@@ -31,7 +32,7 @@ $listaDeProdutos = listarProdutos($conexao);
                 <article class="bg-body-secondary p-2">
                     <h3><?=$produto['Produto']?></h3>
                     <h4><?=$produto['Fabricante']?></h4>
-                    <p><b>Preço:</b> <?=number_format($produto['Preço'], 2, ',', '.')?></p>
+                    <p><b>Preço:</b> <?=formatarPreco($produto['Preço'])?></p>
                     <p><b>Qtd:</b> <?=$produto['Quantidade']?></p>
                 </article>
             </div>
