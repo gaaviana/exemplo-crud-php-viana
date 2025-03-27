@@ -1,8 +1,21 @@
 <?php
-require "../src/funcoes-fabricantes.php";
+require_once "../src/funcoes-fabricantes.php";
+require_once "../src/funcoes-produtos.php";
 
 $listaDeFabricantes = listarFabricantes($conexao);
 
+if (isset($_POST["inserir"])) {
+    
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+    $preco = filter_input(INPUT_POST, "preco", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $quantidade = filter_input(INPUT_POST, "quantidade", FILTER_SANITIZE_NUMBER_INT);
+    $fabricante = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
+    $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    inserirProduto($conexao, $nome, $preco, $quantidade, $fabricante, $descricao);
+
+    header("location:visualizar.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,7 +39,7 @@ $listaDeFabricantes = listarFabricantes($conexao);
             </div>
             <div class="mb-3">
                 <label class="form-label" for="preco">Preço:</label>
-                <input class="form-control" type="number" min="10" max="10000" step="0.01" name="preco" id="preco" required>
+                <input class="form-control" type="number" min="10" max="1000000" step="0.01" name="preco" id="preco" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="quantidade">Quantidade:</label>

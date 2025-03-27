@@ -23,3 +23,23 @@ function listarProdutos(PDO $conexao):array {
     }
 };
 
+function inserirProduto(
+    PDO $conexao,string $nome,float $preco,int $quantidade,int $idFabricante,string $descricao):void {
+        
+    $sql = 'INSERT INTO produtos(nome, preco, quantidade, fabricante_id, descricao) VALUES (:nome, :preco, :quantidade, :fabricante_id,:descricao)';
+    
+    try {
+        $consulta = $conexao->prepare($sql);
+
+        $consulta->bindValue(":nome", $nome, PDO::PARAM_STR_CHAR);
+        $consulta->bindValue(":preco", $preco, PDO::PARAM_STR);
+        $consulta->bindValue(":quantidade", $quantidade, PDO::PARAM_INT);
+        $consulta->bindValue(":fabricante_id", $idFabricante, PDO::PARAM_INT);
+        $consulta->bindValue(":descricao", $descricao, PDO::PARAM_STR_CHAR);
+
+        $consulta->execute();
+        
+    } catch (Exception $erro){
+        die("Erro ao inserir: ".$erro->getMessage());
+    }
+}
