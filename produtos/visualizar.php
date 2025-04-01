@@ -4,6 +4,7 @@ require_once "../src/funcoes-utilitarias.php";
 
 $listaDeProdutos = listarProdutos($conexao);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +36,8 @@ $listaDeProdutos = listarProdutos($conexao);
                         <p><b>Preço:</b> <?= formatarPreco($produto['Preço']) ?></p>
                         <p><b>Qtd:</b> <?= $produto['Quantidade'] ?></p>
                         <p> <b>Total: </b><?= total($produto['Preço'], $produto['Quantidade']) ?></p>
+
+                        <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$produto['id']?>">Atualizar</a>
                     </article>
                 </div>
             <?php } ?>
