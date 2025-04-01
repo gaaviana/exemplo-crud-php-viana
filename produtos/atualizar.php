@@ -1,5 +1,6 @@
 <?php
 require_once "../src/funcoes-produtos.php";
+require_once "../src/funcoes-fabricantes.php";
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
@@ -46,7 +47,7 @@ $produto = listarUmProduto($conexao, $id);
             </div>
             <div class="mb-3">
                 <label  class="form-label" for="descricao">Descrição:</label> <br>
-                <textarea  class="form-control" name="descricao" id="descricao" cols="30" rows="3"></textarea>
+                <textarea  class="form-control" name="descricao" id="descricao" cols="30" rows="3"><?=$produto['descricao']?></textarea>
             </div>
             <button class="btn btn-warning" type="submit" name="atualizar">Atualizar produto</button>
         </form>
