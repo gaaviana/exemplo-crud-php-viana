@@ -39,6 +39,7 @@ $listaDeProdutos = listarProdutos($conexao);
                         <p> <b>Total: </b><?= total($produto['Preço'], $produto['Quantidade']) ?></p>
 
                         <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$produto['id']?>">Atualizar</a>
+                        <a class="btn btn-danger btn-sm" href="excluir.php?id=<?=$produto['id']?>">excloe</a>
                     </article>
                 </div>
             <?php } ?>

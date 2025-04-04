@@ -1,3 +1,17 @@
+<?php
+require_once "../src/funcoes-produtos.php";
+
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+
+// vereficando se houve o sim para excluir
+if(isset($_GET['confirmar'])){
+    excluirProduto($conexao, $id);
+
+    header("location:visualizar.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +31,7 @@
             <p> Deseja realmente excluir o produto?</p>
 
             <a href="visualizar.php" class="btn btn-secondary">Não</a>
-            <a href="" class="btn btn-danger">Sim</a>
+            <a href="?id=<?=$id?>&confirmar" class="btn btn-danger">Sim</a>
 
         </div>
 
