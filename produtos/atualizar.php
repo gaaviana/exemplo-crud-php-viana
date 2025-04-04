@@ -6,6 +6,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 $produto = listarUmProduto($conexao, $id);
 
+$listaDeFabricantes = listarFabricantes($conexao);
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +41,9 @@ $produto = listarUmProduto($conexao, $id);
                 <label class="form-label" for="fabricante">Fabricante:</label>
                 <select  class="form-select" name="fabricante" id="fabricante" required>
                     <option value=""></option>
-                    <option value="">Fabricante 1...</option>
-                    <option value="">Fabricante 2...</option>
-                    <option value="">Fabricante 3...</option>
+                    <?php foreach ($listaDeFabricantes as $fabricante) { ?>
+                        <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+                    <?php }; ?>
                 </select>
             </div>
             <div class="mb-3">

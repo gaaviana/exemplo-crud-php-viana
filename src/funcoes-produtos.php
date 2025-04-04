@@ -61,3 +61,28 @@ function listarUmProduto(PDO $conexao, int $idProduto):array {
         die("Erro ao carregar fabricante: ".$erro->getMessage());
     }
 }
+
+// function listarUmProduto(PDO $conexao, int $idProduto): array {
+//    $sql = "SELECT produtos.*, 
+//            fabricantes.nome AS Fabricante 
+//           FROM produtos INNER JOIN fabricantes 
+//            ON produtos.fabricante_id = fabricantes.id 
+//            WHERE produtos.id = :id";
+//
+//    try {
+//        $consulta = $conexao->prepare($sql);
+//
+           // Associa o parâmetro :id com o valor de $idProduto
+//       $consulta->bindValue(":id", $idProduto, PDO::PARAM_INT);
+
+            // Executa a consulta
+//       $consulta->execute();
+
+        // Retorna o resultado da consulta como um array associativo
+//        return $consulta->fetch(PDO::FETCH_ASSOC);
+
+//    } catch (Exception $erro) {
+        // Em caso de erro, exibe a mensagem de erro
+//        die("Erro ao carregar produto e fabricante: ".$erro->getMessage());
+//    }
+//}
