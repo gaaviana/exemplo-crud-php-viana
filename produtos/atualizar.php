@@ -41,8 +41,15 @@ $listaDeFabricantes = listarFabricantes($conexao);
                 <label class="form-label" for="fabricante">Fabricante:</label>
                 <select  class="form-select" name="fabricante" id="fabricante" required>
                     <option value=""></option>
+
+                    <!-- algoritmo para seleção do fabricante do produto que sera editado
+                    
+                    se a fk da tabela produtos for ifual a pk da tabela fabricantes, ou seja, se o id do fabricante do produto for igual ao id do fabricante, entao coloque o atributo selected no <option> correspondente.
+                    -->
                     <?php foreach ($listaDeFabricantes as $fabricante) { ?>
-                        <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+                        <option <?php 
+                            if($produto['fabricante_id'] === $fabricante['id']) echo " selected " ?> 
+                            value="<?=$fabricante['id']?>"> <?=$fabricante['nome']?> </option>
                     <?php }; ?>
                 </select>
             </div>
